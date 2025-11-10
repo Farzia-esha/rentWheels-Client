@@ -18,7 +18,7 @@ const Footer = () => {
                 <Car className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h3 className="text-xl font-bold">RentWheels</h3>
+                <h3 className="text-xl font-bold">Rent<span className='text-orange-400'>Wheels</span></h3>
                 <p className="text-xs text-gray-400">Drive Your Dreams</p>
               </div>
             </div>

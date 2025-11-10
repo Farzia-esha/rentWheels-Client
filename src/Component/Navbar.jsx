@@ -49,7 +49,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gradient-to-r from-purple-800 via-purple-600 to-purple-800 text-white shadow-lg sticky top-0 z-50">
+    <nav className="bg-gradient-to-r from-purple-700 via-purple-600 to-purple-700 text-white shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
 
@@ -59,7 +59,7 @@ const Navbar = () => {
               <Car className="w-8 h-8 text-white" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-white">Rent<span className='text-red-600'>Wheels</span></h1>
+              <h1 className="text-2xl font-bold text-white">Rent<span className='text-orange-400'>Wheels</span></h1>
               <p className="text-xs text-blue-100">Drive Your Dreams</p>
             </div>
           </Link>
