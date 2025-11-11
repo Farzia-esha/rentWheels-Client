@@ -8,6 +8,8 @@ import CarDetails from '../Pages/CarDetails';
 import PrivateRoute from '../Provider/PrivateRoute';
 import Login from '../Pages/Login';
 import Register from '../Pages/Register';
+import AddCar from '../Pages/AddCar';
+import MyListings from '../Pages/MyListings';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,13 +32,32 @@ const router = createBrowserRouter([
         loader: ({params}) => fetch(`http://localhost:3000/cars/${params.id}`)
       },
       {
+        path: '/add-car',
+        element: (
+          <PrivateRoute>
+            <AddCar />
+          </PrivateRoute>
+        )
+      },
+      {
+  path: '/my-listings',
+  element: (
+    <PrivateRoute>
+      <MyListings />
+    </PrivateRoute>
+  )
+},
+
+
+      {
     path: '/login',
     element: <Login />
   },
   {
     path: '/register',
     element: <Register></Register>
-  }
+  },
+
       
     ]
   },

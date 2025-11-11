@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router';
 import { Car, LogOut, Menu, X, ChevronDown } from 'lucide-react';
-import { useAuth } from '../Provider/AuthProvider';
 import toast from 'react-hot-toast';
+import { useAuth } from '../Provider/AuthProvider';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -141,7 +141,7 @@ const Navbar = () => {
             {user ? (
               <button
                 onClick={handleLogout}
-                className="w-full mt-4 bg-red-500 py-2 rounded-lg font-semibold"
+                className="w-full mt-4 bg-orange-400 py-2 rounded-lg font-semibold"
               >
                 Log Out
               </button>

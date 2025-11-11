@@ -9,6 +9,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
+  
 
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -53,7 +54,7 @@ const Login = () => {
         
         {/* Header */}
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">Welcome to Rent<span className='text-orange-400'>Wheel</span></h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-2">Welcome to Rent<span className='text-orange-500'>Wheels</span></h2>
           <p className="text-gray-600">Login to access your account</p>
         </div>
 
@@ -71,7 +72,7 @@ const Login = () => {
               placeholder="Enter your email"
             />
           </div>
-          
+
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">
               Password
