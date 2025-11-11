@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router';
 import { Car, LogOut, Menu, X, ChevronDown } from 'lucide-react';
-import Swal from 'sweetalert2';
+import { useAuth } from '../Provider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Navbar = () => {
   const navigate = useNavigate();
-
-  const [user, setUser] = useState(null); 
   const [showDropdown, setShowDropdown] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const { user, logoutUser } = useAuth();
+
+
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -19,6 +22,17 @@ const Navbar = () => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [showDropdown]);
+  
+    const handleLogout = async () => {
+    try {
+      await logoutUser();
+      toast.success('Logged out successfully!');
+      navigate('/');
+    } catch (error) {
+      toast.error('Logout failed');
+    }
+  };
+
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -28,9 +42,7 @@ const Navbar = () => {
     { name: 'Browse Cars', path: '/browse-cars' },
   ];
 
-  const handleLogout = () => {
   
-  };
 
   return (
     <nav className="bg-gradient-to-r from-purple-700 via-purple-600 to-purple-700 text-white shadow-lg sticky top-0 z-50">

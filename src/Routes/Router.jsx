@@ -6,6 +6,8 @@ import Home from '../Pages/Home';
 import BrowseCars from '../Pages/BrowseCars';
 import CarDetails from '../Pages/CarDetails';
 import PrivateRoute from '../Provider/PrivateRoute';
+import Login from '../Pages/Login';
+import Register from '../Pages/Register';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,9 +28,18 @@ const router = createBrowserRouter([
           <CarDetails></CarDetails>
         </PrivateRoute>,
         loader: ({params}) => fetch(`http://localhost:3000/cars/${params.id}`)
-},
+      },
+      {
+    path: '/login',
+    element: <Login />
+  },
+  {
+    path: '/register',
+    element: <Register></Register>
+  }
       
     ]
   },
+   
 ]);
 export default router ;
