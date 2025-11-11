@@ -6,12 +6,10 @@ import Swal from 'sweetalert2';
 const Navbar = () => {
   const navigate = useNavigate();
 
-  // Fake user state (you can remove and set to null if logged out)
   const [user, setUser] = useState(null); 
   const [showDropdown, setShowDropdown] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Close dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (showDropdown && !e.target.closest('.user-dropdown')) {
@@ -31,21 +29,7 @@ const Navbar = () => {
   ];
 
   const handleLogout = () => {
-    Swal.fire({
-      title: 'Are you sure?',
-      text: 'You will be logged out!',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Yes, logout!'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        setUser(null);
-        setShowDropdown(false);
-        setMobileMenuOpen(false);
-        navigate('/');
-        Swal.fire('Logged Out!', 'You have been logged out successfully.', 'success');
-      }
-    });
+  
   };
 
   return (
