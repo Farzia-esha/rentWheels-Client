@@ -48,8 +48,6 @@ const Navbar = () => {
     <nav className="bg-gradient-to-r from-purple-700 via-purple-600 to-purple-700 text-white shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-
-          {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
             <div className="p-2 rounded-lg bg-white/20 group-hover:bg-white/30 transition-all duration-300">
               <Car className="w-8 h-8 text-white" />
@@ -60,7 +58,6 @@ const Navbar = () => {
             </div>
           </Link>
 
-          {/* Desktop  */}
           <div className="hidden lg:flex items-center space-x-2">
             {navLinks.map((link) => (
               <NavLink
@@ -77,7 +74,6 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Desktop Auth */}
           <div className="hidden lg:flex items-center">
             {user ? (
               <div className="user-dropdown relative">
@@ -115,7 +111,6 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* Mobile */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="lg:hidden p-2 rounded-lg hover:bg-white/10"
@@ -124,7 +119,6 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile */}
         {mobileMenuOpen && (
           <div className="lg:hidden pb-4">
             {navLinks.map((link) => (
