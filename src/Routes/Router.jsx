@@ -11,6 +11,7 @@ import Register from '../Pages/Register';
 import AddCar from '../Pages/AddCar';
 import MyListings from '../Pages/MyListings';
 import MyBookings from '../Pages/MyBookings';
+import NotFound from '../Pages/NotFound';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -41,33 +42,35 @@ const router = createBrowserRouter([
         )
       },
       {
-  path: '/my-listings',
-  element: (
-    <PrivateRoute>
-      <MyListings />
-    </PrivateRoute>
-  )
-},
-{
-  path: '/my-bookings',
-  element: (
-    <PrivateRoute>
-      <MyBookings />
-    </PrivateRoute>
-  )
-},
+        path: '/my-listings',
+        element: (
+          <PrivateRoute>
+            <MyListings />
+          </PrivateRoute>
+        )
+      },
       {
-    path: '/login',
-    element: <Login />
+        path: '/my-bookings',
+        element: (
+          <PrivateRoute>
+            <MyBookings />
+          </PrivateRoute>
+        )
+      },
+      {
+        path: '/login',
+        element: <Login />
+      },    
+      {   
+        path: '/register',
+        element: <Register></Register>
+      },
+    ]   
   },
   {
-    path: '/register',
-    element: <Register></Register>
-  },
-
-      
-    ]
-  },
+    path: '/*',
+    element: <NotFound></NotFound>
+  }
    
 ]);
 export default router ;
