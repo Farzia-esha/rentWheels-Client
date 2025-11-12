@@ -1,30 +1,65 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaStar, FaQuoteLeft } from 'react-icons/fa';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const Testimonials = () => {
-  const testimonials = [
-    {
-      name: 'Ahmed Rahman',
-      image: 'https://i.pravatar.cc/150?img=12',
-      rating: 5,
-      text: 'Amazing service! The booking process was smooth and the car was in excellent condition. Highly recommended!',
-      location: 'Dhaka'
-    },
-    {
-      name: 'Fatima Sultana',
-      image: 'https://i.pravatar.cc/150?img=45',
-      rating: 5,
-      text: 'Best car rental experience ever! The support team was very helpful and responsive. Will definitely use again.',
-      location: 'Chittagong'
-    },
-    {
-      name: 'Karim Hossain',
-      image: 'https://i.pravatar.cc/150?img=33',
-      rating: 4,
-      text: 'Great variety of cars to choose from. The prices are competitive and the service is top-notch.',
-      location: 'Sylhet'
+  const [testimonials, setTestimonials] = useState([]);
+  const [name, setName] = useState('');
+  const [location, setLocation] = useState('');
+  const [feedback, setFeedback] = useState('');
+  const [rating, setRating] = useState(5);
+
+  const fetchTestimonials = async () => {
+    try {
+      const res = await axios.get('http://localhost:3000/testimonials');
+      setTestimonials(res.data);
+    } catch (err) {
+      console.log(err);
     }
-  ];
+  };
+
+  useEffect(() => {
+    fetchTestimonials();
+  }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const newTestimonial = {
+      customerName: name,
+      feedback,
+      rating,
+      location,
+      imageUrl: "https://i.pravatar.cc/150?img=1"
+    };
+
+    try {
+      await axios.post('http://localhost:3000/testimonials', newTestimonial);
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Thank you!',
+        text: 'Your feedback has been submitted.',
+        showConfirmButton: false,
+        timer: 2000
+      });
+
+      setName('');
+      setLocation('');
+      setFeedback('');
+      setRating(5);
+      fetchTestimonials(); 
+    } catch (err) {
+      console.log(err);
+
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+      });
+    }
+  };
 
   return (
     <section className="py-16 bg-base-200">
@@ -36,7 +71,7 @@ const Testimonials = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-gray-900">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-gray-900">
             What Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">Customers</span> Say
           </h2>
           <p className="text-lg text-base-content/70">
@@ -44,13 +79,47 @@ const Testimonials = () => {
           </p>
         </motion.div>
 
+        <form onSubmit={handleSubmit} className="mb-12 max-w-xl mx-auto space-y-4 p-6 bg-base-100 shadow rounded">
+          <input 
+            type="text" 
+            placeholder="Your Name" 
+            value={name} 
+            onChange={e => setName(e.target.value)} 
+            className="input input-bordered w-full" 
+            required 
+          />
+          <input 
+            type="text" 
+            placeholder="Location" 
+            value={location} 
+            onChange={e => setLocation(e.target.value)} 
+            className="input input-bordered w-full" 
+            required 
+          />
+          <textarea 
+            placeholder="Your Feedback" 
+            value={feedback} 
+            onChange={e => setFeedback(e.target.value)} 
+            className="textarea textarea-bordered w-full" 
+            required 
+          />
+          <select 
+            value={rating} 
+            onChange={e => setRating(Number(e.target.value))} 
+            className="select select-bordered w-full"
+          >
+            {[5,4,3,2,1].map(r => <option key={r} value={r}>{r} Star</option>)}
+          </select>
+          <button type="submit" className="btn btn-primary w-full">Submit Feedback</button>
+        </form>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
+          {testimonials.map((testimonial) => (
             <motion.div
-              key={index}
+              key={testimonial._id}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5 }}
               viewport={{ once: true }}
               className="card bg-base-100 shadow-xl"
             >
@@ -58,17 +127,17 @@ const Testimonials = () => {
                 <div className="flex items-center gap-4 mb-4">
                   <div className="avatar">
                     <div className="w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                      <img src={testimonial.image} alt={testimonial.name} />
+                      <img src={testimonial.imageUrl} alt={testimonial.customerName} />
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg">{testimonial.name}</h3>
+                    <h3 className="font-bold text-lg">{testimonial.customerName}</h3>
                     <p className="text-sm text-base-content/70">{testimonial.location}</p>
                   </div>
                 </div>
 
                 <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
+                  {[...Array(Math.floor(testimonial.rating))].map((_, i) => (
                     <FaStar key={i} className="text-warning" />
                   ))}
                 </div>
@@ -76,7 +145,7 @@ const Testimonials = () => {
                 <div className="relative">
                   <FaQuoteLeft className="text-4xl text-primary/20 absolute -top-2 -left-2" />
                   <p className="text-base-content/80 italic pl-8">
-                    {testimonial.text}
+                    {testimonial.feedback}
                   </p>
                 </div>
               </div>
@@ -89,4 +158,3 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
-
