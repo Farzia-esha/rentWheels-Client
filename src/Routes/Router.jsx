@@ -10,6 +10,7 @@ import Login from '../Pages/Login';
 import Register from '../Pages/Register';
 import AddCar from '../Pages/AddCar';
 import MyListings from '../Pages/MyListings';
+import MyBookings from '../Pages/MyBookings';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -44,6 +45,14 @@ const router = createBrowserRouter([
   element: (
     <PrivateRoute>
       <MyListings />
+    </PrivateRoute>
+  )
+},
+{
+  path: '/my-bookings',
+  element: (
+    <PrivateRoute>
+      <MyBookings />
     </PrivateRoute>
   )
 },
