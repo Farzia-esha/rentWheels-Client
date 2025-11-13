@@ -8,11 +8,18 @@ const BrowseCars = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [sortBy, setSortBy] = useState('default');
 
+  // const filteredCars = allCars.filter(car => {
+  //   const matchesSearch = car.carName.toLowerCase().includes(searchTerm.toLowerCase());
+  //   const matchesCategory = selectedCategory === 'All' || car.category === selectedCategory;
+  //   return matchesSearch && matchesCategory;
+  // });
+
   const filteredCars = allCars.filter(car => {
-    const matchesSearch = car.carName.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === 'All' || car.category === selectedCategory;
-    return matchesSearch && matchesCategory;
-  });
+  const matchesSearch = car.carName.toLowerCase().includes(searchTerm.toLowerCase());
+  const matchesCategory = selectedCategory === 'All' || car.category === selectedCategory;
+  return car.status === 'available' ||matchesSearch && matchesCategory;
+});
+
 
   // Sort
   const sortedCars = [...filteredCars].sort((a, b) => {

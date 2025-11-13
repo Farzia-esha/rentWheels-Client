@@ -135,7 +135,7 @@ const TopRatedCar = () => {
         <div className="text-center mt-12">
           <Link
             to="/browse-cars"
-            className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-600 to-orange-400 hover:from-purple-700 hover:to-orange-500 text-white px-8 py-4 rounded-lg font-bold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+            className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-600 to-pink-400 hover:from-purple-700 hover:to-orange-500 text-white px-8 py-4 rounded-lg font-bold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
           >
             <span>Explore All Top Rated Cars</span>
             <FaCar />

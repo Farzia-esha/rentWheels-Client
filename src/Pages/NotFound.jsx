@@ -7,7 +7,7 @@ const NotFound = () => {
     <div className="flex items-center justify-center min-h-screen bg-gray-200 px-4">
       <div className="bg-white shadow-md rounded-2xl p-10 text-center max-w-md w-full">
         <div className="flex justify-center mb-6">
-          <div className="bg-orange-500 p-6 rounded-full">
+          <div className="bg-orange-500 p-6 rounded-full animate-pulse">
             <AlertCircle className="text-white w-10 h-10" />
           </div>
         </div>

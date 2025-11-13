@@ -32,9 +32,9 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Add Car', path: '/add-car', private: true },
-    { name: 'My Listings', path: '/my-listings', private: true },
-    { name: 'My Bookings', path: '/my-bookings', private: true },
+    { name: 'Add Car', path: '/add-car'},
+    { name: 'My Listings', path: '/my-listings' },
+    { name: 'My Bookings', path: '/my-bookings'},
     { name: 'Browse Cars', path: '/browse-cars' },
   ];
 
