@@ -2,6 +2,7 @@
   
 
 **Live Site:** [ https://mellow-tartufo-668815.netlify.app/ ]
+               [ https://rentwheels-server-five.vercel.app/ ]
 
 
 
@@ -47,7 +48,7 @@ RentWheels is a full-stack MERN application that connects users with local car o
 - **Featured Cars Section**: Display 6 newest cars from database  
 - **Extra Sections**: Top-rated cars and testimonials  
 - **Loading Spinner**: Shown during API calls  
-- **Animations**: Framer Motion and Lottie React for smooth effects  
+- **Animations**: Framer Motion and Typewriter React for smooth effects  
 
 ---
 
@@ -55,7 +56,7 @@ RentWheels is a full-stack MERN application that connects users with local car o
 
 - **Frontend:** React, React Router, TailwindCSS, React Icons, Framer Motion, SweetAlert, React Hot Toast  
 - **Backend:** Node.js, Express, MongoDB  
-- **Deployment:** Client → Netlify / Surge, Server → Vercel  
+- **Deployment:** Client → Netlify , Server → Vercel  
 
 
 
