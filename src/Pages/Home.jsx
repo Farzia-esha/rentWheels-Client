@@ -3,6 +3,7 @@ import Banner from '../Component/Banner';
 import FeaturedCars from '../Component/FeaturedCars';
 import WhyRentWithUs from '../Component/WhyRentUs';
 import Testimonials from '../Component/Testimonials';
+import TopRatedCar from '../Component/TopRatedCar';
 
 const Home = () => {
     return (
@@ -10,6 +11,7 @@ const Home = () => {
             <Banner></Banner>
             <FeaturedCars></FeaturedCars>
             <WhyRentWithUs></WhyRentWithUs>
+            <TopRatedCar></TopRatedCar>
             <Testimonials></Testimonials>
         </div>
     );

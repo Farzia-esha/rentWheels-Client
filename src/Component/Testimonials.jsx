@@ -79,40 +79,6 @@ const Testimonials = () => {
           </p>
         </motion.div>
 
-        <form onSubmit={handleSubmit} className="mb-12 max-w-xl mx-auto space-y-4 p-6 bg-base-100 shadow rounded">
-          <input 
-            type="text" 
-            placeholder="Your Name" 
-            value={name} 
-            onChange={e => setName(e.target.value)} 
-            className="input input-bordered w-full" 
-            required 
-          />
-          <input 
-            type="text" 
-            placeholder="Location" 
-            value={location} 
-            onChange={e => setLocation(e.target.value)} 
-            className="input input-bordered w-full" 
-            required 
-          />
-          <textarea 
-            placeholder="Your Feedback" 
-            value={feedback} 
-            onChange={e => setFeedback(e.target.value)} 
-            className="textarea textarea-bordered w-full" 
-            required 
-          />
-          <select 
-            value={rating} 
-            onChange={e => setRating(Number(e.target.value))} 
-            className="select select-bordered w-full"
-          >
-            {[5,4,3,2,1].map(r => <option key={r} value={r}>{r} Star</option>)}
-          </select>
-          <button type="submit" className="btn btn-primary w-full">Submit Feedback</button>
-        </form>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial) => (
             <motion.div
@@ -152,6 +118,40 @@ const Testimonials = () => {
             </motion.div>
           ))}
         </div>
+
+        <form onSubmit={handleSubmit} className="mt-12 max-w-xl mx-auto space-y-4 p-6 bg-base-100 shadow rounded">
+          <input 
+            type="text" 
+            placeholder="Your Name" 
+            value={name} 
+            onChange={e => setName(e.target.value)} 
+            className="input input-bordered w-full" 
+            required 
+          />
+          <input 
+            type="text" 
+            placeholder="Location" 
+            value={location} 
+            onChange={e => setLocation(e.target.value)} 
+            className="input input-bordered w-full" 
+            required 
+          />
+          <textarea 
+            placeholder="Your Feedback" 
+            value={feedback} 
+            onChange={e => setFeedback(e.target.value)} 
+            className="textarea textarea-bordered w-full" 
+            required 
+          />
+          <select 
+            value={rating} 
+            onChange={e => setRating(Number(e.target.value))} 
+            className="select select-bordered w-full"
+          >
+            {[5,4,3,2,1].map(r => <option key={r} value={r}>{r} Star</option>)}
+          </select>
+          <button type="submit" className="btn btn-primary w-full">Submit Feedback</button>
+        </form>
       </div>
     </section>
   );

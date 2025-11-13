@@ -1,49 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules';
 import { FaArrowRight, FaCheckCircle } from 'react-icons/fa';
 import { Link } from 'react-router';
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
+import axios from 'axios';
 
 const Banner = () => {
-  const slides = [
-    {
-      id: 1,
-      title: "Find Your Perfect Ride",
-      subtitle: "Explore thousands of cars from trusted local providers",
-      description: "Book instantly, drive confidently with our verified rental partners",
-      image: "https://i.ibb.co.com/gLyY8rp1/photo-1549317661-bd32c8ce0db2-w-1200-q-80.jpg",
-      buttonText: "Browse Cars",
-      link: "/browse-cars",
-      features: ["Instant Booking", "Best Prices", "24/7 Support"]
-    },
-    {
-      id: 2,
-      title: "Drive Luxury, Pay Less",
-      subtitle: "Premium cars at affordable daily rates",
-      description: "From sedans to SUVs, find the perfect vehicle for every journey",
-      image: "https://i.ibb.co.com/JFS4zDK9/photo-1563720360172-67b8f3dce741-w-1200-q-80.jpg",
-      buttonText: "View Deals",
-      link: "/browse-cars",
-      features: ["Luxury Fleet", "Flexible Booking", "Free Cancellation"]
-    },
-    {
-      id: 3,
-      title: "List Your Car, Earn Money",
-      subtitle: "Join thousands of car owners earning passive income",
-      description: "Safe, secure, and hassle-free car sharing platform",
-      image: "https://i.ibb.co.com/RTX2WMMp/photo-1552519507-da3b142c6e3d-w-1200-q-80.jpg",
-      buttonText: "Start Earning",
-      link: "/add-car",
-      features: ["Easy Setup", "Secure Payments", "Insurance Covered"]
-    }
-  ];
+  const [slides, setSlides] = useState([]);
 
+useEffect(() => {
+  axios.get('http://localhost:3000/banners')
+    .then(res => setSlides(res.data))
+    .catch(err => console.error(err));
+}, []);
   return (
     <div className="relative">
       <Swiper
@@ -72,7 +46,6 @@ const Banner = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/40 to-transparent"></div>
               </div>
 
-              {/* Content */}
               <div className="relative z-10 h-full flex items-center">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                   <div className="max-w-2xl">

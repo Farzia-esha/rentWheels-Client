@@ -8,9 +8,9 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-white pt-12 pb-6">
+    <footer className="bg-gray-900 text-white pt-8 pb-4">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-6">
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <div className="p-2 bg-blue-600 rounded-lg">
@@ -54,7 +54,7 @@ const Footer = () => {
 
           <div>
             <h3 className="text-lg font-bold mb-4 text-white">Quick Links</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               <li>
                 <Link to="/" className="text-gray-400 hover:text-blue-400 transition-colors flex items-center group">
                   <span className="w-0 h-0.5 bg-blue-400 group-hover:w-4 transition-all duration-300 mr-2"></span>
@@ -114,7 +114,7 @@ const Footer = () => {
 
           <div>
             <h3 className="text-lg font-bold mb-4 text-white">Legal</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               <li>
                 <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors flex items-center group">
                   <span className="w-0 h-0.5 bg-blue-400 group-hover:w-4 transition-all duration-300 mr-2"></span>
@@ -149,7 +149,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 pt-6 mt-6">
+        <div className="border-t border-gray-700 pt-2 mt-2">
           <div className="flex justify-center items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-sm text-center md:text-left">
               © {currentYear} RentWheels. All rights reserved. Made with love in Bangladesh <HeartIcon className='inline text-orange-500'></HeartIcon>
