@@ -52,7 +52,7 @@ useEffect(() => {
   };
   if (loading) {
     return (
-      <div className="h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center bg-gradient-to-br from-purple-900 via-purple-700 to-pink-600">
+      <div className="h-[400px] md:h-[500px] lg:h-[500px] flex items-center justify-center bg-purple-500">
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
@@ -109,7 +109,7 @@ useEffect(() => {
                 transition={{  duration: 1.5,  ease: "easeOut" 
                 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent"></div>
               </motion.div>
               <div className="relative z-10 h-full flex items-center">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">

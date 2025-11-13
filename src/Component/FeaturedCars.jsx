@@ -94,7 +94,6 @@ const FeaturedCars = () => {
                     <span className="text-sm">{car.providerName}</span>
                   </div>
                 </div>
-
                 <div className="flex items-center justify-between pt-4 border-t border-gray-200">
                   <div className="flex items-center space-x-2">
                     <div>
