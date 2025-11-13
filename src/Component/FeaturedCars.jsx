@@ -30,7 +30,6 @@ const FeaturedCars = () => {
   return (
     <section className="py-16 bg-gradient-to-b from-purple-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Featured <span className="text-purple-600">Cars</span>
@@ -41,14 +40,12 @@ const FeaturedCars = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-purple-400 mx-auto mt-4 rounded-full"></div>
         </div>
 
-        {/* Cars Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {cars.map((car) => (
             <div
               key={car._id}
               className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300"
             >
-              {/* Car Image */}
               <div className="relative overflow-hidden h-56">
                 <img
                   src={car.imageUrl}
@@ -56,7 +53,6 @@ const FeaturedCars = () => {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 
-                {/* Status Badge */}
                 <div className="absolute top-4 right-4">
                   {car.status === 'available' ? (
                     <span className="flex items-center space-x-1 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
@@ -71,7 +67,6 @@ const FeaturedCars = () => {
                   )}
                 </div>
 
-                {/* Category Badge */}
                 <div className="absolute top-4 left-4">
                   <span className="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
                     {car.category}
@@ -79,34 +74,27 @@ const FeaturedCars = () => {
                 </div>
               </div>
 
-              {/* Car Details */}
               <div className="p-6">
-                {/* Car Name */}
                 <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
                   {car.carName}
                 </h3>
 
-                {/* model */}
                 <p className="text-gray-600 text-sm mb-4 line-clamp-2 font-bold">
                  model : {car.model}
                 </p>
 
-                {/* Details Grid */}
                 <div className="space-y-2 mb-4">
-                  {/* Location */}
                   <div className="flex items-center text-gray-700">
                     <FaMapMarkerAlt className="text-purple-600 mr-2 text-sm" />
                     <span className="text-sm">{car.location}</span>
                   </div>
 
-                  {/* Provider */}
                   <div className="flex items-center text-gray-700">
                     <FaUser className="text-purple-600 mr-2 text-sm" />
                     <span className="text-sm">{car.providerName}</span>
                   </div>
                 </div>
 
-                {/* Rent Price */}
                 <div className="flex items-center justify-between pt-4 border-t border-gray-200">
                   <div className="flex items-center space-x-2">
                     <div>
@@ -130,7 +118,6 @@ const FeaturedCars = () => {
           ))}
         </div>
 
-        {/* View All Button */}
         <div className="text-center mt-12">
           <Link
             to="/browse-cars"

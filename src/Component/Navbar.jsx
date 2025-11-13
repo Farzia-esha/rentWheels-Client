@@ -6,12 +6,9 @@ import { useAuth } from '../Provider/AuthProvider';
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const { user, logoutUser } = useAuth();
   const [showDropdown, setShowDropdown] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const { user, logoutUser } = useAuth();
-
-
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -22,8 +19,8 @@ const Navbar = () => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [showDropdown]);
-  
-    const handleLogout = async () => {
+
+  const handleLogout = async () => {
     try {
       await logoutUser();
       toast.success('Logged out successfully!');
@@ -33,16 +30,13 @@ const Navbar = () => {
     }
   };
 
-
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Add Car', path: '/add-car' },
-    { name: 'My Listings', path: '/my-listings' },
-    { name: 'My Bookings', path: '/my-bookings'},
+    { name: 'Add Car', path: '/add-car', private: true },
+    { name: 'My Listings', path: '/my-listings', private: true },
+    { name: 'My Bookings', path: '/my-bookings', private: true },
     { name: 'Browse Cars', path: '/browse-cars' },
   ];
-
-  
 
   return (
     <nav className="bg-gradient-to-r from-purple-700 via-purple-600 to-purple-700 text-white shadow-lg sticky top-0 z-50">
@@ -53,7 +47,9 @@ const Navbar = () => {
               <Car className="w-8 h-8 text-white" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-white">Rent<span className='text-orange-400'>Wheels</span></h1>
+              <h1 className="text-2xl font-bold text-white">
+                Rent<span className="text-orange-400">Wheels</span>
+              </h1>
               <p className="text-xs text-blue-100">Drive Your Dreams</p>
             </div>
           </Link>
@@ -82,18 +78,28 @@ const Navbar = () => {
                   className="flex items-center space-x-3"
                 >
                   <img
-                    src={user?.photoURL || "https://via.placeholder.com/100"}
+                    src={user?.photoURL || 'https://i.ibb.co/2YjZtBL/default-avatar.png'}
                     alt="User"
                     className="w-10 h-10 rounded-full border-2 border-white"
                   />
-                  <ChevronDown className={`w-4 h-4 ${showDropdown ? 'rotate-180' : ''}`} />
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform ${showDropdown ? 'rotate-180' : ''}`}
+                  />
                 </button>
 
                 {showDropdown && (
-                  <div className="absolute right-0 mt-3 w-40 bg-white rounded-lg shadow-lg py-2 text-black">
+                  <div className="absolute right-0 mt-3 w-56 bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100 rounded-xl shadow-xl py-3 text-black transition-all duration-200 border border-purple-300">
+                    <div className="px-4 pb-3 border-b border-purple-200">
+                      <p className="font-bold text-purple-700 text-lg">
+                        {user.displayName || 'Guest User'}
+                      </p>
+                      <p className="text-sm text-orange-600 font-medium truncate">
+                        {user.email}
+                      </p>
+                    </div>
                     <button
                       onClick={handleLogout}
-                      className="w-full text-left px-4 py-2 hover:bg-gray-100 flex items-center space-x-2"
+                      className="w-full text-left px-4 py-2 mt-2 rounded-lg hover:bg-purple-600 hover:text-white flex items-center space-x-2 transition-all duration-200 font-semibold text-purple-700"
                     >
                       <LogOut className="w-4 h-4" />
                       <span>Log Out</span>
@@ -104,9 +110,9 @@ const Navbar = () => {
             ) : (
               <Link
                 to="/login"
-                className="bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-50 shadow"
+                className="bg-white text-purple-700 px-6 py-2 rounded-lg font-semibold hover:bg-blue-50 shadow"
               >
-                Login
+                Login / Signup
               </Link>
             )}
           </div>
@@ -120,32 +126,51 @@ const Navbar = () => {
         </div>
 
         {mobileMenuOpen && (
-          <div className="lg:hidden pb-4">
+          <div className="lg:hidden pb-4 animate-fade-in">
             {navLinks.map((link) => (
               <NavLink
                 key={link.path}
                 to={link.path}
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-4 py-2 text-white hover:bg-white/10"
+                className={`
+                  block px-4 py-2 text-white hover:bg-white/10 rounded
+                  ${link.private && !user ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''}
+                `}
               >
                 {link.name}
               </NavLink>
             ))}
 
             {user ? (
-              <button
-                onClick={handleLogout}
-                className="w-full mt-4 bg-orange-400 py-2 rounded-lg font-semibold"
-              >
-                Log Out
-              </button>
+              <div className="mt-5 mx-4 p-4 rounded-xl bg-purple-100 shadow-lg border border-purple-300">
+                <div className="flex items-center space-x-3 mb-3">
+                  <img
+                    src={user?.photoURL || 'https://i.ibb.co/2YjZtBL/default-avatar.png'}
+                    alt="User"
+                    className="w-12 h-12 rounded-full border-2 border-purple-500"
+                  />
+                  <div>
+                    <p className="font-bold text-purple-700 text-lg">{user.displayName || 'Guest User'}</p>
+                    <p className="text-sm text-orange-500 font-medium truncate">{user.email}</p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => {
+                    handleLogout();
+                    setMobileMenuOpen(false);
+                  }}
+                  className="w-full bg-purple-600 text-white py-2 rounded-lg font-semibold hover:bg-purple-700 transition-all duration-200"
+                >
+                  Log Out
+                </button>
+              </div>
             ) : (
               <Link
                 to="/login"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block text-center mt-4 bg-white text-blue-600 py-2 rounded-lg font-semibold"
+                className="block text-center mt-4 bg-white text-purple-700 py-2 rounded-lg font-semibold"
               >
-                Login
+                Login / Signup
               </Link>
             )}
           </div>
@@ -156,3 +181,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
