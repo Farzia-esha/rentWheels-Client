@@ -63,7 +63,7 @@ useEffect(() => {
   }
   if (slides.length === 0) {
     return (
-      <div className="h-[400px] md:h-[500px] lg:h-[500px] flex items-center justify-center bg-gradient-to-br from-gray-700 to-gray-00">
+      <div className="h-[400px] md:h-[500px] lg:h-[500px] flex items-center justify-center bg-gradient-to-br from-gray-700 to-gray-900">
         <p className="text-white text-xl">No banners available</p>
       </div>
     );
