@@ -1,16 +1,61 @@
-# React + Vite
+# RentWheels – Car Rental Platform
+  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Site:** [ https://mellow-tartufo-668815.netlify.app/ ]
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+## Project Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+RentWheels is a full-stack MERN application that connects users with local car owners and rental providers. Users can browse available cars, view details, and book rentals for specific dates. Car providers can list vehicles, manage bookings, and update availability. The platform focuses on ease of use, real-time booking updates, and a professional car rental experience.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Main Features
+
+1. **User Authentication**  
+   - Email/Password login and registration  
+   - Google login integration  
+   - Conditional navbar showing profile image for logged-in users  
+
+2. **Car Management (CRUD)**  
+   - Providers can add, update, and delete their car listings  
+   - View all bookings made by users  
+   - Real-time status update of car availability  
+
+3. **Browse Cars**  
+   - Public page displaying all available cars  
+   - Each car card shows name, price, type, provider info, and "View Details" button  
+
+4. **Booking System**  
+   - Logged-in users can book cars  
+   - Prevents double booking  
+   - Updates car status in the database (Available / Unavailable)  
+   - Confirmation shown via SweetAlert or toast  
+
+5. **Responsive UI**  
+   - Fully responsive design for mobile, tablet, and desktop  
+   - Clean grid layouts, equal card heights, and consistent typography  
+   - Hero banner with carousel, top-rated cars, customer testimonials, and benefits section  
+
+---
+
+## UI & Design Features
+
+- **Navbar & Footer**: Persistent on all pages except 404  
+- **Hero Banner**: Carousel with meaningful slides  
+- **Featured Cars Section**: Display 6 newest cars from database  
+- **Extra Sections**: Top-rated cars and testimonials  
+- **Loading Spinner**: Shown during API calls  
+- **Animations**: Framer Motion and Lottie React for smooth effects  
+
+---
+
+## Technologies Used
+
+- **Frontend:** React, React Router, TailwindCSS, React Icons, Framer Motion, SweetAlert, React Hot Toast  
+- **Backend:** Node.js, Express, MongoDB  
+- **Deployment:** Client → Netlify / Surge, Server → Vercel  
+
+
+
