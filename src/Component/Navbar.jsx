@@ -147,7 +147,7 @@ const Navbar = () => {
                   <img
                     src={user?.photoURL || 'https://i.ibb.co/2YjZtBL/default-avatar.png'}
                     alt="User"
-                    className="w-12 h-12 rounded-full border-2 border-purple-500"
+                    className="w-12 h-12 rounded-full border-2 "
                   />
                   <div>
                     <p className="font-bold text-purple-700 text-lg">{user.displayName || 'Guest User'}</p>
