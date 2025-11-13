@@ -37,7 +37,6 @@ const BrowseCars = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-orange-400 mx-auto mt-4 rounded-full"></div>
         </div>
 
-        {/* Search */}
         <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="relative">
@@ -75,7 +74,6 @@ const BrowseCars = () => {
             </div>
           </div>
 
-          {/* Results Count */}
           <div className="mt-4 text-center">
             <p className="text-gray-600">
               Showing <span className="font-bold text-purple-600">{sortedCars.length}</span> of{' '}
@@ -84,7 +82,6 @@ const BrowseCars = () => {
           </div>
         </div>
 
-        {/* Cars grid */}
         {sortedCars.length === 0 ? (
           <div className="bg-white rounded-2xl shadow-lg p-12 text-center">
             <FaCar className="text-6xl text-gray-400 mx-auto mb-4" />
