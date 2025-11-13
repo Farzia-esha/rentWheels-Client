@@ -24,14 +24,14 @@ const router = createBrowserRouter([
       {
         path: '/browse-cars',
         element:<BrowseCars></BrowseCars>,
-        loader :()=> fetch('http://localhost:3000/cars')
+        loader :()=> fetch('https://rentwheels-server-five.vercel.app/cars')
       },
       {
         path: '/cars/:id',
         element: <PrivateRoute>
           <CarDetails></CarDetails>
         </PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:3000/cars/${params.id}`)
+        loader: ({params}) => fetch(`https://rentwheels-server-five.vercel.app/cars/${params.id}`)
       },
       {
         path: '/add-car',
@@ -68,7 +68,7 @@ const router = createBrowserRouter([
     ]   
   },
   {
-    path: '/*',
+    path: '*',
     element: <NotFound></NotFound>
   }
    

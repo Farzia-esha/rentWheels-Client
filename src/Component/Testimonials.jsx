@@ -13,7 +13,7 @@ const Testimonials = () => {
 
   const fetchTestimonials = async () => {
     try {
-      const res = await axios.get('http://localhost:3000/testimonials');
+      const res = await axios.get('https://rentwheels-server-five.vercel.app/testimonials');
       setTestimonials(res.data);
     } catch (err) {
       console.log(err);
@@ -35,7 +35,7 @@ const Testimonials = () => {
     };
 
     try {
-      await axios.post('http://localhost:3000/testimonials', newTestimonial);
+      await axios.post('https://rentwheels-server-five.vercel.app/testimonials', newTestimonial);
 
       Swal.fire({
         icon: 'success',

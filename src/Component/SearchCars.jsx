@@ -8,7 +8,7 @@ const SearchCars = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:3000/cars')
+    fetch('https://rentwheels-server-five.vercel.app/cars')
       .then(res => res.json())
       .then(data => setAllCars(data))
       .catch(err => console.error(err));

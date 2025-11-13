@@ -12,7 +12,7 @@ const MyListings = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/cars/provider/${user.email}`)
+      fetch(`https://rentwheels-server-five.vercel.app/cars/provider/${user.email}`)
         .then(res => res.json())
         .then(data => {
           setCars(data);
@@ -36,7 +36,7 @@ const MyListings = () => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/cars/${id}`, 
+        fetch(`https://rentwheels-server-five.vercel.app/cars/${id}`, 
          { method: 'DELETE' })
           .then(res => res.json())
           .then(data => {
@@ -74,7 +74,7 @@ const MyListings = () => {
     };
 
     try {
-      const response = await fetch(`http://localhost:3000/cars/${editingCar._id}`, {
+      const response = await fetch(`https://rentwheels-server-five.vercel.app/cars/${editingCar._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

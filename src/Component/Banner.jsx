@@ -17,7 +17,7 @@ const Banner = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
 useEffect(() => {
-    axios.get('http://localhost:3000/banners')
+    axios.get('https://rentwheels-server-five.vercel.app/banners')
       .then(res => {
         setSlides(res.data);
         setLoading(false);

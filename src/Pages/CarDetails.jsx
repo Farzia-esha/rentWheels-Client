@@ -14,7 +14,7 @@ const CarDetails = () => {
   const [bookingLoading, setBookingLoading] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/cars/${id}`)
+    fetch(`https://rentwheels-server-five.vercel.app/cars/${id}`)
       .then(res => res.json())
       .then(data => {
         setCar(data);
@@ -102,7 +102,7 @@ const CarDetails = () => {
       };
 
       try {
-        const response = await fetch('http://localhost:3000/bookings', {
+        const response = await fetch('https://rentwheels-server-five.vercel.app/bookings', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(bookingData),

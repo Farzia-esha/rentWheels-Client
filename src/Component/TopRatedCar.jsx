@@ -7,7 +7,7 @@ const TopRatedCar = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:3000/cars')
+    fetch('https://rentwheels-server-five.vercel.app/cars')
       .then(res => res.json())
       .then(data => {
         const shuffled = data.sort(() => 0.5 - Math.random());

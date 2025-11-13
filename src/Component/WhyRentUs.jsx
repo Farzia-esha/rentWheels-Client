@@ -13,7 +13,7 @@ const WhyRentWithUs = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:3000/benefits")
+    fetch("https://rentwheels-server-five.vercel.app/benefits")
       .then((res) => res.json())
       .then((data) => {
         setBenefits(data);
