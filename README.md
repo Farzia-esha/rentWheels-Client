@@ -1,8 +1,8 @@
 # RentWheels – Car Rental Platform
   
 
-**Live Site:** [ https://mellow-tartufo-668815.netlify.app/ ]
-               [ https://rentwheels-server-five.vercel.app/ ]
+**Client Live Site:** [ https://mellow-tartufo-668815.netlify.app/ ]
+**Server Live Site:** [ https://rentwheels-server-five.vercel.app/ ]
 
 
 
