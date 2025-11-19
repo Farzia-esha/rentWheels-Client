@@ -69,31 +69,31 @@ RentWheels is a full-stack MERN application that connects users with local car o
  ## How to Run Locally
 
 **Client Setup**
-git clone https://github.com/Farzia-esha/rentWheels-Client.git
-cd rentWheels-Client
-npm install
-npm run dev
+- git clone https://github.com/Farzia-esha/rentWheels-Client.git
+- cd rentWheels-Client
+- npm install
+- npm run dev
 
 📁 .env file (Do not push this to GitHub):
 
-VITE_FIREBASE_API_KEY=your_api_key
-VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
-VITE_FIREBASE_PROJECT_ID=your_project_id
-VITE_FIREBASE_STORAGE_BUCKET=your_bucket
-VITE_FIREBASE_MESSAGING_SENDER_ID=your_id
-VITE_FIREBASE_APP_ID=your_app_id
-VITE_BACKEND_BASE_URL=https://your-server.vercel.app
+- VITE_FIREBASE_API_KEY=your_api_key
+- VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+- VITE_FIREBASE_PROJECT_ID=your_project_id
+- VITE_FIREBASE_STORAGE_BUCKET=your_bucket
+- VITE_FIREBASE_MESSAGING_SENDER_ID=your_id
+- VITE_FIREBASE_APP_ID=your_app_id
+- VITE_BACKEND_BASE_URL=https://your-server.vercel.app
 
 **⚙️ Server Setup**
 
-git clone https://github.com/Farzia-esha/rentwheels-server.git
-cd rentwheels-server
-npm install
-npm run start
+- git clone https://github.com/Farzia-esha/rentwheels-server.git
+- cd rentwheels-server
+- npm install
+- npm run start
 
 📁 .env file (Do not push this to GitHub):
 
-PORT=5000
-MONGODB_URI=your_mongodb_uri
-ACCESS_TOKEN_SECRET=your_secret_key
+- PORT=5000
+- MONGODB_URI=your_mongodb_uri
+- ACCESS_TOKEN_SECRET=your_secret_key
 
