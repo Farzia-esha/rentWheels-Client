@@ -67,6 +67,7 @@ RentWheels is a full-stack MERN application that connects users with local car o
 ---
 
 ## 📦 Dependencies:
+### Client site:
 - @tailwindcss/vite ^4.1.15
 - aos ^2.3.4
 - firebase ^12.4.0
@@ -80,6 +81,12 @@ RentWheels is a full-stack MERN application that connects users with local car o
 - sweetalert2 ^11.26.3
 - swiper ^12.0.3
 - tailwindcss ^4.1.15
+  
+ ### Server Site:
+- express@4.18.2
+- cors@2.8.5
+- dotenv@16.4.5
+- mongodb@6.5.0
 
  ## How to Run Locally
 
