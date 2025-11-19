@@ -93,7 +93,7 @@ RentWheels is a full-stack MERN application that connects users with local car o
 
 📁 .env file (Do not push this to GitHub):
 
-- PORT=5000
+- PORT=3000
 - MONGODB_URI=your_mongodb_uri
 - ACCESS_TOKEN_SECRET=your_secret_key
 
