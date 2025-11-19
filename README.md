@@ -1,9 +1,4 @@
 # RentWheels – Car Rental Platform
-  
-
-**Client Live Site:** [ https://mellow-tartufo-668815.netlify.app/ ]
-<br>
-**Server Live Site:** [ https://rentwheels-server-five.vercel.app/ ]
 
 
 
@@ -59,5 +54,9 @@ RentWheels is a full-stack MERN application that connects users with local car o
 - **Backend:** Node.js, Express, MongoDB  
 - **Deployment:** Client → Netlify , Server → Vercel  
 
+
+**Client Live Site:** [ https://mellow-tartufo-668815.netlify.app/ ]
+<br>
+**Server Live Site:** [ https://rentwheels-server-five.vercel.app/ ]
 
 
