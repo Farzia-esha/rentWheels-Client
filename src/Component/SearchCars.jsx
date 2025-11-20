@@ -19,8 +19,8 @@ const SearchCars = () => {
   );
 
   return (
-    <div className="max-w-5xl mx-auto py-8 px-4">
-      <div className="flex gap-2 mb-6">
+    <div className="max-w-xl md:max-w-5xl mx-auto py-8 px-4">
+      <div className="flex gap-2 mb-6 ">
         <input
           type="text"
           placeholder="Search by car name..."
