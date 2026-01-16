@@ -7,7 +7,7 @@ import Footer from '../Component/Footer';
 
 const MainLayout = () => {
     return (
-        <div className='bg-purple-100'>
+        <div className='bg-purple-100 '>
             <Toaster position="top-right" />
             <header>
                 <Navbar />

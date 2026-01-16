@@ -11,7 +11,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <FeaturedCars></FeaturedCars>
-            <SearchCars></SearchCars>
+            {/* <SearchCars></SearchCars> */}
             <WhyRentWithUs></WhyRentWithUs>
             <TopRatedCar></TopRatedCar>
             <Testimonials></Testimonials>

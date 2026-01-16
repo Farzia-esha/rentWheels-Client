@@ -7,7 +7,7 @@ import {
   onAuthStateChanged,
   updateProfile
 } from 'firebase/auth';
-import { auth, googleProvider } from '../Firebase/firebase.config';
+import { auth,googleProvider } from '../Firebase/firebase.config';
 
 const AuthContext = createContext(null);
 
@@ -19,11 +19,37 @@ export const useAuth = () => {
   return context;
 };
 
+
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [role, setRole] = useState('user');
 
-  const registerUser = (email, password) => {
+// useEffect(() => {
+//   if (user?.email) {
+//     fetch(`https://rentwheels-server-five.vercel.app/users?email=${user.email}`)
+//       .then(res => res.json())
+//       .then(data => setRole(data.role || 'user'));
+//   }
+// }, [user]);
+
+useEffect(() => {
+  if (!user?.email) return;
+
+  fetch(`https://rentwheels-server-five.vercel.app/users/${user.email}`)
+    .then(res => res.json())
+    .then(data => {
+      if (data?.role) {
+        setRole(data.role);
+      } else {
+        setRole('user');
+      }
+    })
+    .catch(() => setRole('user'));
+}, [user]);
+  
+
+const registerUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
@@ -60,9 +86,12 @@ export const AuthProvider = ({ children }) => {
     return () => unsubscribe();
   }, []);
 
+  const isAdmin = user?.email === 'admin@demo.com';
+
   const authInfo = {
     user,
     loading,
+    isAdmin,
     registerUser,
     loginUser,
     googleLogin,
